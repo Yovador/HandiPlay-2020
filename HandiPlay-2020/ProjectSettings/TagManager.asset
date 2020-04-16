@@ -7,6 +7,7 @@ TagManager:
   - Grid
   - PlayerTile
   - Wall
+  - PointBall
   layers:
   - Default
   - TransparentFX
@@ -43,4 +44,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 1662936611
+    locked: 0
+  - name: Wall
+    uniqueID: 1010952211
+    locked: 0
+  - name: PointBall
+    uniqueID: 3708522749
+    locked: 0
+  - name: Player
+    uniqueID: 3508008193
     locked: 0
