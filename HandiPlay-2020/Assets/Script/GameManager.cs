@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public static bool gamePauseOn = false;
     private bool gameInit = false;
     private GameObject pauseMenu;
+    private GameObject deathMenu;
     private GameObject gameUI;
 
 
@@ -26,30 +27,10 @@ public class GameManager : MonoBehaviour
     {
         if (gameState == 1)
         {
-            if (!gameInit)
-            {
-                pauseMenu = GameObject.Find("PauseMenu");
-                pauseMenu.SetActive(false);
-                gameUI = GameObject.Find("GameUI");
-                gameUI.SetActive(true);
-                gameInit = true;
-            }
+            GameInit();
+            Pause();
+            Death();
 
-            if (Input.GetKeyDown(InputManager.Gpause))
-            {
-                gamePauseOn = !gamePauseOn;
-            }
-
-            if (gamePauseOn)
-            {
-                pauseMenu.SetActive(true);
-                gameUI.SetActive(false);
-            }
-            else
-            {
-                pauseMenu.SetActive(false);
-                gameUI.SetActive(true);
-            }
         }
         if (gameState == 0)
         {
@@ -58,4 +39,46 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
+    private void GameInit()
+    {
+        if (!gameInit && PlayerController.isSnakeAlive)
+        {
+            pauseMenu = GameObject.Find("PauseMenu");
+            pauseMenu.SetActive(false);
+            deathMenu = GameObject.Find("DeathMenu");
+            deathMenu.SetActive(false);
+            gameUI = GameObject.Find("GameUI");
+            gameUI.SetActive(true);
+            gameInit = true;
+        }
+    }
+
+    private void Pause()
+    {
+        if (Input.GetKeyDown(InputManager.Gpause))
+        {
+            gamePauseOn = !gamePauseOn;
+        }
+
+        if (gamePauseOn)
+        {
+            pauseMenu.SetActive(true);
+        }
+        else
+        {
+            pauseMenu.SetActive(false);
+        }
+    }
+
+    private void Death()
+    {
+        if (!PlayerController.isSnakeAlive)
+        {
+            gameInit = false;
+            pauseMenu.SetActive(false);
+            deathMenu.SetActive(true);
+        }
+    }
 }
+

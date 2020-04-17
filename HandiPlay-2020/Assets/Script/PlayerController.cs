@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     public TileBase bodyDownLeft;
     public TileBase bodyDownRight;
 
-    private bool isSnakeAlive = true;
+    public static bool isSnakeAlive = true;
 
     public int maxSnakeSize;
 
@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
         wallTileMap = GameObject.FindGameObjectWithTag("Wall").GetComponent<Tilemap>();
         pointballTileMap = GameObject.FindGameObjectWithTag("PointBall").GetComponent<Tilemap>();
         PointBallSpawner.needPointBall = true;
+        PlayerController.isSnakeAlive = true;
     }
 
     private void Update()
@@ -51,7 +52,7 @@ public class PlayerController : MonoBehaviour
 
         if (!movingRoutineOn)
         {
-            if (!GameManager.gamePauseOn)
+            if (!GameManager.gamePauseOn && isSnakeAlive)
             {
                 StartCoroutine(MovingRoutine());
             }
@@ -100,7 +101,6 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        Debug.Log(directionState);
         switch (directionState)
         {
             case 0:
@@ -136,6 +136,7 @@ public class PlayerController : MonoBehaviour
         {
             pointballTileMap.SetTile(pointballTileMap.WorldToCell(collision.ClosestPoint(transform.position)), null);
             PointBallSpawner.needPointBall = true;
+            ScoreDisplay.score++;
             ExtendSnake();
         }
     }
@@ -145,12 +146,10 @@ public class PlayerController : MonoBehaviour
         if (snakePosition.Contains(playerTileMap.WorldToCell(transform.position)) && playerTileMap.WorldToCell(transform.position) != snakePosition[snakePosition.Count -1])
         {
             isSnakeAlive = false;
-            Destroy(gameObject);
         }
         if (wallTileMap.HasTile(playerTileMap.WorldToCell(transform.position)))
         {
             isSnakeAlive = false;
-            Destroy(gameObject);
         }
 
     }

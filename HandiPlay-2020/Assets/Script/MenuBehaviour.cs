@@ -16,4 +16,9 @@ public class MenuBehaviour : MonoBehaviour
     {
         GameManager.gameState = gameState;
     }
+
+    public void UnPause()
+    {
+        GameManager.gamePauseOn = false;
+    }
 }
