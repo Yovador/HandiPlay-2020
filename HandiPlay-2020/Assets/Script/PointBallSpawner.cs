@@ -43,11 +43,6 @@ public class PointBallSpawner : MonoBehaviour
             SpawnSequence();
         }
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            SpawnSequence();
-        }
-
     }
     private void SpawnSequence()
     {

@@ -24,8 +24,6 @@ public class PlayerController : MonoBehaviour
     public TileBase bodyDownLeft;
     public TileBase bodyDownRight;
 
-    public float timeBetweenFrame;
-
     private bool isSnakeAlive = true;
 
     public int maxSnakeSize;
@@ -45,22 +43,19 @@ public class PlayerController : MonoBehaviour
         playerTileMap = GameObject.FindGameObjectWithTag("PlayerTile").GetComponent<Tilemap>();
         wallTileMap = GameObject.FindGameObjectWithTag("Wall").GetComponent<Tilemap>();
         pointballTileMap = GameObject.FindGameObjectWithTag("PointBall").GetComponent<Tilemap>();
-
+        PointBallSpawner.needPointBall = true;
     }
 
     private void Update()
     {
 
-        Debug.Log("Position WallTile : " + wallTileMap.WorldToCell(transform.position) + "Position PlayerTile : " + playerTileMap.WorldToCell(transform.position));
         if (!movingRoutineOn)
         {
-            StartCoroutine(MovingRoutine());
+            if (!GameManager.gamePauseOn)
+            {
+                StartCoroutine(MovingRoutine());
+            }
             GetLastKey();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            ExtendSnake();
         }
 
     }
@@ -70,13 +65,16 @@ public class PlayerController : MonoBehaviour
     {
         movingRoutineOn = true;
         
-        yield return new WaitForSecondsRealtime(timeBetweenFrame);
-        Movement();
-        SnakeCollide();
-        if (isSnakeAlive)
+        yield return new WaitForSecondsRealtime(PlayerPrefs.GetFloat("GameSpeed"));
+        if (!GameManager.gamePauseOn)
         {
-            CheckSnakeSize();
-            SnakeDisplay();
+            Movement();
+            SnakeCollide();
+            if (isSnakeAlive)
+            {
+                CheckSnakeSize();
+                SnakeDisplay();
+            }
         }
         movingRoutineOn = false;
 

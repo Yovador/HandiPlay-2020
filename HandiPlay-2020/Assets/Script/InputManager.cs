@@ -20,7 +20,6 @@ public class InputManager : MonoBehaviour
     public static KeyCode Gleft;
     public static KeyCode Gpause;
 
-
     private void Start()
     {
         Gup = up;
@@ -29,6 +28,26 @@ public class InputManager : MonoBehaviour
         Gleft = left;
         Gpause = pause;
 
+        if (PlayerPrefs.HasKey("up"))
+        {
+            Gup = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("up"));
+        }
+        if (PlayerPrefs.HasKey("down"))
+        {
+            Gdown = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("down"));
+        }
+        if (PlayerPrefs.HasKey("right"))
+        {
+            Gright = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("right"));
+        }
+        if (PlayerPrefs.HasKey("left"))
+        {
+            Gleft = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("left"));
+        }
+        if (PlayerPrefs.HasKey("pause"))
+        {
+            Gpause = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("pause"));
+        }
     }
 
 private void Update()
@@ -42,6 +61,5 @@ private void Update()
         }
     }
 
-    
-
 }
+

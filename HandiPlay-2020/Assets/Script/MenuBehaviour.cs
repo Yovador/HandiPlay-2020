@@ -7,8 +7,13 @@ using UnityEngine.SceneManagement;
 public class MenuBehaviour : MonoBehaviour
 {
     //Change the Scene, scenename is set in the inspector
-    public void Switch(string scenename)
+    public void SwitchScene(string scenename)
     {
         SceneManager.LoadScene(scenename, LoadSceneMode.Single);
+    }
+
+    public void SwitchgameState(int gameState)
+    {
+        GameManager.gameState = gameState;
     }
 }
