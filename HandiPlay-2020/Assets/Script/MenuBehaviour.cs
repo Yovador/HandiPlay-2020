@@ -27,4 +27,9 @@ public class MenuBehaviour : MonoBehaviour
     {
         GameManager.gamePauseOn = false;
     }
+
+    public void CloseGame()
+    {
+        Application.Quit();
+    }
 }
