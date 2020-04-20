@@ -14,7 +14,13 @@ public class MenuBehaviour : MonoBehaviour
 
     public void SwitchgameState(int gameState)
     {
+        AudioManager.soundToPlay.Clear();
         GameManager.gameState = gameState;
+    }
+
+    public void SoundOnClick()
+    {
+        AudioManager.PlayASound("MenuClick");
     }
 
     public void UnPause()

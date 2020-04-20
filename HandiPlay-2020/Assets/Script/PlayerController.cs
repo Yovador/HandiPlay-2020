@@ -136,6 +136,7 @@ public class PlayerController : MonoBehaviour
         {
             pointballTileMap.SetTile(pointballTileMap.WorldToCell(collision.ClosestPoint(transform.position)), null);
             PointBallSpawner.needPointBall = true;
+            AudioManager.PlayASound("PointBallTaken");
             ScoreDisplay.score++;
             ExtendSnake();
         }
@@ -143,6 +144,7 @@ public class PlayerController : MonoBehaviour
 
     private void SnakeCollide()
     {
+
         if (snakePosition.Contains(playerTileMap.WorldToCell(transform.position)) && playerTileMap.WorldToCell(transform.position) != snakePosition[snakePosition.Count -1])
         {
             isSnakeAlive = false;

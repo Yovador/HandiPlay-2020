@@ -15,6 +15,14 @@ public class SliderControl : MonoBehaviour
         {
             SetDefaultSlider("GameSpeed");
         }
+        if (settingsToChange == "VolumeSFX")
+        {
+            SetDefaultSlider("VolumeSFX");
+        }
+        if (settingsToChange == "VolumeMusic")
+        {
+            SetDefaultSlider("VolumeMusic");
+        }
 
     }
 
@@ -23,6 +31,14 @@ public class SliderControl : MonoBehaviour
         if (settingsToChange == "GameSpeed")
         {
             ChangeValue("GameSpeed");
+        }
+        if (settingsToChange == "VolumeSFX")
+        {
+            ChangeValue("VolumeSFX");
+        }
+        if (settingsToChange == "VolumeMusic")
+        {
+            ChangeValue("VolumeMusic");
         }
     }
 

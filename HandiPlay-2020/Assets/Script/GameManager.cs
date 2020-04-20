@@ -7,12 +7,13 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public float timeBetweenFrame;
-    public static int gameState; //0 = menu; 1 = in game;
+    public static int gameState = 0; //0 = menu; 1 = in game; 2 = credit
     public static bool gamePauseOn = false;
     private bool gameInit = false;
     private GameObject pauseMenu;
     private GameObject deathMenu;
     private GameObject gameUI;
+    private bool playDeathSound = false;
 
 
     private void Start()
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log("GameState : " + gameState);
         if (gameState == 1)
         {
             GameInit();
@@ -51,6 +53,7 @@ public class GameManager : MonoBehaviour
             gameUI = GameObject.Find("GameUI");
             gameUI.SetActive(true);
             gameInit = true;
+            playDeathSound = false;
         }
     }
 
@@ -75,6 +78,11 @@ public class GameManager : MonoBehaviour
     {
         if (!PlayerController.isSnakeAlive)
         {
+            if (!playDeathSound)
+            {
+                AudioManager.PlayASound("DeathSound");
+                playDeathSound = true;
+            }
             gameInit = false;
             pauseMenu.SetActive(false);
             deathMenu.SetActive(true);
