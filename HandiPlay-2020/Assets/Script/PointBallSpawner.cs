@@ -32,8 +32,8 @@ public class PointBallSpawner : MonoBehaviour
         wallTile = GameObject.FindGameObjectWithTag("Wall").GetComponent<Tilemap>();
         cameraHeight = (int)mainCamera.orthographicSize;
         cameraWidth = (int)Mathf.Round(cameraHeight* resolution);
-        Debug.Log("Rez : " + resolution);
-        Debug.Log("cameraHeight : " + cameraHeight + " cameraWidth : " + cameraWidth + " Expected width : " + (cameraHeight * resolution) + "Expected heigth : " + mainCamera.orthographicSize);
+        //Debug.Log("Rez : " + resolution);
+        //Debug.Log("cameraHeight : " + cameraHeight + " cameraWidth : " + cameraWidth + " Expected width : " + (cameraHeight * resolution) + "Expected heigth : " + mainCamera.orthographicSize);
     }
 
     private void Update()
@@ -46,12 +46,10 @@ public class PointBallSpawner : MonoBehaviour
     }
     private void SpawnSequence()
     {
-        Debug.Log("SpawnSequence");
         int infBreak = 0;
         while (!isSpaceEmpty)
         {
             infBreak++;
-            Debug.Log("While in");
             rdmY = Random.Range(-cameraHeight, cameraHeight);
             rdmX = Random.Range(-cameraWidth, cameraWidth);
             CheckIfThereIsSomethingHere(rdmX, rdmY);

@@ -1355,7 +1355,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.2
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4116,6 +4116,20 @@ MonoBehaviour:
   bodyUpRight: {fileID: 11400000, guid: 35cdc784783d46747a1e9e819b812792, type: 2}
   bodyDownLeft: {fileID: 11400000, guid: c9841c708d35d2a4e9c48e302979a246, type: 2}
   bodyDownRight: {fileID: 11400000, guid: 2d6c62fbfbe5c704f901fa6a4fdf371c, type: 2}
+  headUpBrok: {fileID: 11400000, guid: bbbb1c6ff0d23ad46af6815874d82ca5, type: 2}
+  headDownBrok: {fileID: 11400000, guid: b30fd6c4e7fa98c4a960ca08665b6d6b, type: 2}
+  headRightBrok: {fileID: 11400000, guid: f0df2363830182c47a21e120791a2b78, type: 2}
+  headLeftBrok: {fileID: 11400000, guid: fedf69d0394f073408b8e5d899bf9c37, type: 2}
+  tailUpBrok: {fileID: 11400000, guid: 27f70ff57e96cb441859da60f8a41ba6, type: 2}
+  tailDownBrok: {fileID: 11400000, guid: dbf13b9b4d9113c40afbc9f35ab5019b, type: 2}
+  tailRightBrok: {fileID: 11400000, guid: aa0743ce863e8fc469142dd4ea59202a, type: 2}
+  tailLeftBrok: {fileID: 11400000, guid: 6316d1e9b3b7df145b13fbd4b7de7a99, type: 2}
+  bodyHorizontalBrok: {fileID: 11400000, guid: 0a6296f2159c0164faf6140930378cb6, type: 2}
+  bodyVerticalBrok: {fileID: 11400000, guid: 7c0314748a26a7b4e92b95a1bbe7461c, type: 2}
+  bodyUpLeftBrok: {fileID: 11400000, guid: 3f6d5f49e640aba4d9ae50cde102d16d, type: 2}
+  bodyUpRightBrok: {fileID: 11400000, guid: debbcfebd389dc04a856ba515223e7b7, type: 2}
+  bodyDownLeftBrok: {fileID: 11400000, guid: f0b0a27ef2dd78d43809713ac4ad7c8b, type: 2}
+  bodyDownRightBrok: {fileID: 11400000, guid: 955d08af288c5fe4984bb18f7fb6634d, type: 2}
   maxSnakeSize: 4
 --- !u!61 &1297574714
 BoxCollider2D:

@@ -6,6 +6,7 @@ using UnityEngine.Tilemaps;
 
 public class PlayerController : MonoBehaviour
 {
+    //Snake Sprite, Normal Version
     public TileBase headUp;
     public TileBase headDown;
     public TileBase headRight;
@@ -23,6 +24,27 @@ public class PlayerController : MonoBehaviour
     public TileBase bodyUpRight;
     public TileBase bodyDownLeft;
     public TileBase bodyDownRight;
+
+    //Broken Version
+    public TileBase headUpBrok;
+    public TileBase headDownBrok;
+    public TileBase headRightBrok;
+    public TileBase headLeftBrok;
+
+    public TileBase tailUpBrok;
+    public TileBase tailDownBrok;
+    public TileBase tailRightBrok;
+    public TileBase tailLeftBrok;
+
+    public TileBase bodyHorizontalBrok;
+    public TileBase bodyVerticalBrok;
+
+    public TileBase bodyUpLeftBrok;
+    public TileBase bodyUpRightBrok;
+    public TileBase bodyDownLeftBrok;
+    public TileBase bodyDownRightBrok;
+
+
 
     public static bool isSnakeAlive = true;
 
@@ -52,11 +74,11 @@ public class PlayerController : MonoBehaviour
 
         if (!movingRoutineOn)
         {
+            GetLastKey();
             if (!GameManager.gamePauseOn && isSnakeAlive)
             {
                 StartCoroutine(MovingRoutine());
             }
-            GetLastKey();
         }
 
     }
@@ -65,8 +87,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator MovingRoutine()
     {
         movingRoutineOn = true;
-        
-        yield return new WaitForSecondsRealtime(PlayerPrefs.GetFloat("GameSpeed"));
+       
         if (!GameManager.gamePauseOn)
         {
             Movement();
@@ -74,9 +95,14 @@ public class PlayerController : MonoBehaviour
             if (isSnakeAlive)
             {
                 CheckSnakeSize();
-                SnakeDisplay();
+                SnakeDisplay( headUp,  headDown,  headRight,  headLeft,  tailRight,  tailLeft,  tailUp,  tailDown,  bodyHorizontal,  bodyVertical,  bodyDownRight,  bodyDownLeft, bodyUpRight, bodyUpLeft);
+            }
+            else
+            {
+                SnakeDisplay(headUpBrok, headDownBrok, headRightBrok, headLeftBrok, tailRightBrok, tailLeftBrok, tailUpBrok, tailDownBrok, bodyHorizontalBrok, bodyVerticalBrok, bodyDownRightBrok, bodyDownLeftBrok, bodyUpRightBrok, bodyUpLeftBrok);
             }
         }
+        yield return new WaitForSecondsRealtime(PlayerPrefs.GetFloat("GameSpeed"));
         movingRoutineOn = false;
 
     }
@@ -172,7 +198,7 @@ public class PlayerController : MonoBehaviour
         maxSnakeSize ++;
     }
 
-    private void SnakeDisplay()
+    private void SnakeDisplay(TileBase headUp,  TileBase headDown, TileBase headRight, TileBase headLeft, TileBase tailRight, TileBase tailLeft, TileBase tailUp, TileBase tailDown, TileBase bodyHorizontal, TileBase bodyVertical, TileBase bodyDownRight, TileBase bodyDownLeft, TileBase bodyUpRight, TileBase bodyUpLeft)
     {
 
         snakePosition.Add(playerTileMap.WorldToCell(transform.position));

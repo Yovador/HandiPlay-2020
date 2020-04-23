@@ -486,6 +486,37 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6203913757066159170, guid: 36872899180a97641916a7982508712a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203913757066159170, guid: 36872899180a97641916a7982508712a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203913757066159170, guid: 36872899180a97641916a7982508712a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203913757066159170, guid: 36872899180a97641916a7982508712a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 2698072919973692725, guid: 1d688d83db67ad1499edb530cfa2aa54,
+        type: 3}
+    - target: {fileID: 6203913757066159170, guid: 36872899180a97641916a7982508712a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SwitchgameState
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203913757066159170, guid: 36872899180a97641916a7982508712a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36872899180a97641916a7982508712a, type: 3}
 --- !u!224 &1740871681 stripped

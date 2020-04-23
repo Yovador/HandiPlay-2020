@@ -25,7 +25,7 @@ public class AudioManager : MonoBehaviour
     {
         if (!soundToPlay.Contains(sound))
         {
-            Debug.Log("Added : " + sound);
+            //Debug.Log("Added : " + sound);
             soundToPlay.Add(sound);
         }
     }
@@ -46,9 +46,9 @@ public class AudioManager : MonoBehaviour
         }
 
         //Debug Only :
-        foreach (var item in soundToPlay)
+        /*foreach (var item in soundToPlay)
         {
             Debug.Log("Sound to play : " + item);
-        }
+        }*/
     }
 }
