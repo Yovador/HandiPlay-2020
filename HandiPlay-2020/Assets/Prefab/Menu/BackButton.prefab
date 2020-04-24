@@ -121,8 +121,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2698072919973692725, guid: 1d688d83db67ad1499edb530cfa2aa54,
           type: 3}
-        m_MethodName: SwitchScene
-        m_Mode: 5
+        m_MethodName: Return
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -159,6 +159,6 @@ MonoBehaviour:
   gameState: 0
   sceneToGo: MainMenu
   paramSwitchMenu: 
-  type: 0
+  type: 4
   button: {fileID: 0}
   self: {fileID: 0}

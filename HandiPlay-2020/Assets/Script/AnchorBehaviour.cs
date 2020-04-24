@@ -9,7 +9,7 @@ public class AnchorBehaviour : MonoBehaviour
     public int gameState;
     public string sceneToGo;
     public string paramSwitchMenu;
-    public int type; //0: Bouton de Transition; 1: Bouton Quitter; 2: Bouton de pause; 3: Bouton de switch de canvas
+    public int type; //0: Bouton de Transition; 1: Bouton Quitter; 2: Bouton de pause; 3: Bouton de switch de canvas, 4: Return
     [HideInInspector]
     public Button button;
     [HideInInspector]

@@ -38,29 +38,57 @@ public class InputManager : MonoBehaviour
         {
             Gup = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("up"));
         }
+        else
+        {
+            PlayerPrefs.SetString("up", GmouseLessNavigation.ToString());
+        }
         if (PlayerPrefs.HasKey("down"))
         {
             Gdown = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("down"));
+        }
+        else
+        {
+            PlayerPrefs.SetString("down", GmouseLessNavigation.ToString());
         }
         if (PlayerPrefs.HasKey("right"))
         {
             Gright = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("right"));
         }
+        else
+        {
+            PlayerPrefs.SetString("right", GmouseLessNavigation.ToString());
+        }
         if (PlayerPrefs.HasKey("left"))
         {
             Gleft = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("left"));
+        }
+        else
+        {
+            PlayerPrefs.SetString("left", GmouseLessNavigation.ToString());
         }
         if (PlayerPrefs.HasKey("pause"))
         {
             Gpause = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("pause"));
         }
+        else
+        {
+            PlayerPrefs.SetString("pause", GmouseLessNavigation.ToString());
+        }
         if (PlayerPrefs.HasKey("mouseless"))
         {
             GmouseLessNavigation = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("mouseless"));
         }
+        else
+        {
+            PlayerPrefs.SetString("mouseless", GmouseLessNavigation.ToString());
+        }
         if (PlayerPrefs.HasKey("confirm"))
         {
             Gconfirm = (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("confirm"));
+        }
+        else
+        {
+            PlayerPrefs.SetString("confirm", GmouseLessNavigation.ToString());
         }
 
     }

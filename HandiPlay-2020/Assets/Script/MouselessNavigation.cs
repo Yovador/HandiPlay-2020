@@ -7,7 +7,7 @@ public class MouselessNavigation : MonoBehaviour
     private Menu menu;
     private List<GameObject> navigationAnchor;
     private List<int> order = new List<int>();
-    private int anchorNumber = 0;
+    private int anchorNumber = -1;
     private AnchorBehaviour infoAnchor;
     private List<AnchorBehaviour> listofAnchor = new List<AnchorBehaviour>();
     public static GameObject selectedObject;
@@ -37,37 +37,45 @@ public class MouselessNavigation : MonoBehaviour
                 }
 
             }
-            selectedObject = infoAnchor.self;
-            transform.position = infoAnchor.transform.position;
-            infoAnchor.button.Select();
-
-            if (Input.GetKeyDown(InputManager.Gconfirm))
+            if (anchorNumber >= 0)
             {
-                switch (infoAnchor.type)
+                selectedObject = infoAnchor.self;
+                transform.position = infoAnchor.transform.position;
+                infoAnchor.button.Select();
+
+                if (Input.GetKeyDown(InputManager.Gconfirm))
                 {
-                    case 0:
-                        menu.SwitchgameState(infoAnchor.gameState);
-                        menu.SoundOnClick();
-                        menu.SwitchScene(infoAnchor.sceneToGo);
-                        Init();
-                        break;
-                    case 1:
-                        menu.SoundOnClick();
-                        menu.CloseGame();
-                        break;
-                    case 2:
-                        menu.SoundOnClick();
-                        menu.UnPause();
-                        Init();
-                        break;
-                    case 3:
-                        ParamMenu.switchTo = infoAnchor.paramSwitchMenu;
-                        Init();
-                        break;
-                    default:
-                        break;
+                    switch (infoAnchor.type)
+                    {
+                        case 0:
+                            menu.SwitchgameState(infoAnchor.gameState);
+                            menu.SoundOnClick();
+                            menu.SwitchScene(infoAnchor.sceneToGo);
+                            Init();
+                            break;
+                        case 1:
+                            menu.SoundOnClick();
+                            menu.CloseGame();
+                            break;
+                        case 2:
+                            menu.SoundOnClick();
+                            menu.UnPause();
+                            Init();
+                            break;
+                        case 3:
+                            ParamMenu.switchTo = infoAnchor.paramSwitchMenu;
+                            Init();
+                            break;
+                        case 4:
+                            menu.Return();
+                            Init();
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
+           
         }
         
     }
@@ -76,7 +84,7 @@ public class MouselessNavigation : MonoBehaviour
     {
         navigationAnchor = new List<GameObject>();
         infoAnchor = null;
-        anchorNumber = 0;
+        anchorNumber = -1;
         order = new List<int>();
         listofAnchor = new List<AnchorBehaviour>();
         ParamMenu.switchTo = null;
@@ -100,7 +108,7 @@ public class MouselessNavigation : MonoBehaviour
         navigationAnchor = new List<GameObject>(GameObject.FindGameObjectsWithTag("Anchor"));
         if (GameObject.FindGameObjectsWithTag("Anchor").Length > 0)
         {
-            Debug.Log("Found Anchor");
+            //Debug.Log("Found Anchor");
         }
         foreach (var anchor in navigationAnchor)
         {
@@ -108,7 +116,7 @@ public class MouselessNavigation : MonoBehaviour
             listofAnchor.Add(behaviour);
             if (behaviour != null)
             {
-                Debug.Log("behaviour found" + behaviour.order +behaviour.sceneToGo);
+                //Debug.Log("behaviour found" + behaviour.order +behaviour.sceneToGo);
             }
             order.Add(behaviour.order);
         }
